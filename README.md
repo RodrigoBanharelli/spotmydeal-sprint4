@@ -89,4 +89,10 @@ Maven e é descartado, o segundo leva apenas o `.jar` para uma imagem com JRE 21
 A aplicação lê a porta de `PORT`, que o servidor de aplicação injeta. As variáveis a cadastrar no
 painel do provedor são `DB_USER`, `DB_PASS` e, se o banco mudar, `DB_URL`.
 
-URL pública: _a preencher_
+**URL pública:** https://spotmydeal-sprint4.onrender.com
+
+A instância é do plano gratuito e hiberna após 15 minutos sem acesso: a primeira requisição
+depois disso pode levar 50 segundos até a aplicação acordar.
+
+A raiz `/` não tem rota mapeada e responde 404. Para verificar que a API está no ar, chame
+[`/usuarios`](https://spotmydeal-sprint4.onrender.com/usuarios).
