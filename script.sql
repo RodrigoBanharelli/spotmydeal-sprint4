@@ -1,5 +1,25 @@
+-- =====================================================================
+-- SoulUp / SpotMyDeal - Sprint 4
+-- Script de criacao das 5 tabelas do MER
+-- =====================================================================
 
--- 1) USUARIO 
+-- Para recomecar do zero, rode os drops abaixo antes do script.
+-- A ordem importa: as tabelas filhas saem primeiro, senao o Oracle
+-- recusa a exclusao por causa das chaves estrangeiras.
+--
+-- drop table t_smd_resgate         cascade constraints;
+-- drop table t_smd_usuario_missao  cascade constraints;
+-- drop table t_smd_missao          cascade constraints;
+-- drop table t_smd_loja            cascade constraints;
+-- drop table t_smd_usuario         cascade constraints;
+-- drop sequence sq_t_smd_resgate;
+-- drop sequence sq_t_smd_usuario_missao;
+-- drop sequence sq_t_smd_missao;
+-- drop sequence sq_t_smd_loja;
+-- drop sequence sq_t_smd_usuario;
+
+
+-- 1) USUARIO
 create table t_smd_usuario (
     cd_usuario          number(9,0)   primary key,
     nm_usuario          varchar2(80)  not null,
