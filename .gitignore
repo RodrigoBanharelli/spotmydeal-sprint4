@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Fontes editaveis dos diagramas: ficam na maquina, nao no repositorio.
+# O que vai para a documentacao sao os PNG exportados.
+docs/*.drawio
