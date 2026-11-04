@@ -112,7 +112,28 @@ public class GamificacaoBO {
         return usuario;
     }
 
-    public void removerUsuario(int id) throws SQLException, EntidadeNaoEncontradaException {
+    /* Remove o usuário, desde que ele não tenha histórico.
+
+       Mesma guarda que a LojaBO e a MissaoBO já faziam: conclusão de missão e resgate
+       de cupom apontam para o usuário por chave estrangeira. Sem a checagem aqui, quem
+       barra é o banco, e a falha chega ao cliente como 500 — quando na verdade é regra
+       de negócio, que merece 400 e uma explicação do que fazer. */
+    public void removerUsuario(int id)
+            throws SQLException, EntidadeNaoEncontradaException, RegraNegocioException {
+        Usuario usuario = usuarioDao.buscar(id);
+
+        if (!usuarioMissaoDao.listarPorUsuario(id).isEmpty()) {
+            throw new RegraNegocioException("O usuario " + usuario.getNome()
+                    + " possui missoes concluidas e nao pode ser excluido."
+                    + " Apagar levaria junto o historico de pontuacao.");
+        }
+
+        if (!resgateDao.listarPorUsuario(id).isEmpty()) {
+            throw new RegraNegocioException("O usuario " + usuario.getNome()
+                    + " possui cupons resgatados e nao pode ser excluido."
+                    + " Apagar levaria junto o historico de resgates.");
+        }
+
         usuarioDao.apagar(id);
     }
 

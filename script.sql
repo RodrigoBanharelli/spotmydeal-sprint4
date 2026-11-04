@@ -4,8 +4,7 @@
 -- =====================================================================
 
 -- Para recomecar do zero, rode os drops abaixo antes do script.
--- A ordem importa: as tabelas filhas saem primeiro, senao o Oracle
--- recusa a exclusao por causa das chaves estrangeiras.
+--  tabelas filhas saem primeiro, senao o Oracle recusa a exclusao por causa das chaves estrangeiras.
 --
 -- drop table t_smd_resgate         cascade constraints;
 -- drop table t_smd_usuario_missao  cascade constraints;
@@ -48,7 +47,7 @@ create sequence sq_t_smd_loja start with 1 increment by 1 nocache;
 
 
 -- 3) MISSAO 
--- Nao tem coluna "concluida": isso e do par usuario x missao, na tabela 4.
+--Nao tem coluna "concluida": isso e do par usuario x missao, na tabela 4.
 create table t_smd_missao (
     cd_missao       number(9,0)   primary key,
     nm_titulo       varchar2(80)  not null,

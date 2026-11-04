@@ -90,12 +90,14 @@ public class UsuarioResource {
         return ResponseEntity.ok(DetalhesUsuarioDto.de(usuario));
     }
 
-    /* DELETE /usuarios/{id} — remove o usuário | 204, 404
+    /* DELETE /usuarios/{id} — remove o usuário | 204, 400, 404
 
-       204 No Content porque não há o que devolver depois de apagar. */
+       204 No Content porque não há o que devolver depois de apagar.
+       400 quando o usuário tem missão concluída ou cupom resgatado: o histórico
+       aponta para ele, e apagar levaria esses registros junto. */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> apagar(@PathVariable int id)
-            throws SQLException, EntidadeNaoEncontradaException {
+            throws SQLException, EntidadeNaoEncontradaException, RegraNegocioException {
         gamificacaoBO.removerUsuario(id);
         return ResponseEntity.noContent().build();
     }
