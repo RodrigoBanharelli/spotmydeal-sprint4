@@ -1,0 +1,25 @@
+# Tudo que nao precisa ser enviado para o build do Docker.
+# Quanto menor o contexto, mais rapido o deploy sobe no Render.
+
+# Saida de build local - a imagem compila do zero la dentro
+target/
+
+# Historico e configuracao de IDE
+.git/
+.gitignore
+.gitattributes
+.idea/
+*.iml
+.vscode/
+
+# O wrapper nao e usado no container: o estagio de build ja vem
+# com o Maven instalado na propria imagem
+.mvn/
+mvnw
+mvnw.cmd
+
+# Documentacao e script de banco nao entram na imagem.
+# O script.sql e rodado a mao no Oracle da FIAP, nao pela aplicacao.
+HELP.md
+script.sql
+*.md
