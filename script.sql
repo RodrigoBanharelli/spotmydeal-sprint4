@@ -156,8 +156,41 @@ commit;
 
 
 
--- CONFERENCIA
 
+-- ---------------------------------------------------------------------
+-- Ajuste do ranking, para a vitrine do front ter nomes e pontuacao de verdade.
+--
+-- A chave aqui e o e-mail, e nao o codigo. Quem gera o codigo e a sequence, e numa
+-- base recem-criada ele nao e o mesmo numero de hoje.
+--
+-- O nivel vai junto com a pontuacao de proposito: ds_nivel e coluna no banco, e quem
+-- recalcula ela no Java e o adicionarPontos(), que so roda quando o usuario conclui
+-- missao. Mexendo na pontuacao por SQL, o nivel tem que vir na mesma linha - senao a
+-- API devolve 2340 pontos com nivel "Iniciante", que e a faixa de quem tem menos de 500.
+-- A regra esta no Usuario.atualizarNivel(): 500 Ecologista, 800 Sustentavel Avancado,
+-- 1000 Lenda Verde.
+-- ---------------------------------------------------------------------
+
+update t_smd_usuario
+   set nm_usuario = 'rodrigo', vl_pontuacao = 2340, ds_nivel = 'Lenda Verde'
+ where ds_email = 'rodrigo@soulup.com.br';
+
+update t_smd_usuario
+   set nm_usuario = 'Tayna Jimenes', vl_pontuacao = 1890, ds_nivel = 'Lenda Verde'
+ where ds_email = 'tayna@soulup.com.br';
+
+-- Os outros dois integrantes nao existiam no script: entravam so pelo POST da API, e por
+-- isso o update por codigo fixo (8 e 11) nao encontrava ninguem numa base zerada.
+insert into t_smd_usuario (cd_usuario, nm_usuario, ds_email, vl_pontuacao, ds_nivel, nr_dias_ult_missao)
+values (sq_t_smd_usuario.nextval, 'Gabriel A.', 'gabriel@email.com', 1540, 'Lenda Verde', 3);
+
+insert into t_smd_usuario (cd_usuario, nm_usuario, ds_email, vl_pontuacao, ds_nivel, nr_dias_ult_missao)
+values (sq_t_smd_usuario.nextval, 'Nycolas Melo', 'Melomelo@email.com', 1120, 'Lenda Verde', 4);
+
+commit;
+
+
+-- CONFERENCIA
 select * from t_smd_usuario;
 select * from t_smd_loja;
 select * from t_smd_missao;
