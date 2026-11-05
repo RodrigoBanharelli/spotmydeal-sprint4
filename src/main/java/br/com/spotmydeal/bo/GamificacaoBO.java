@@ -24,7 +24,7 @@ import java.util.List;
 
 /* Regras de gamificação do SoulUp: cadastro, missões, resgate de cupons e ranking.
 
-   Era o GamificacaoService da Sprint 3. O que mudou na Sprint 4:
+
 
    - virou @Service e recebe os DAOs pelo construtor, em vez de guardar uma lista de
      usuários em memória. A lista era um espelho do banco que podia dessincronizar;

@@ -11,12 +11,7 @@ import jakarta.validation.constraints.Size;
    Serve aos dois verbos porque, neste domínio, cadastrar e alterar recebem exatamente
    os mesmos campos. A apostila cria um DTO por ação (CadastroAlunoDto e
    AtualizacaoAlunoDto); aqui seriam duas classes idênticas, então ficou uma só.
-   Se um dia o cadastro passar a pedir algo que a alteração não pede, aí vale separar.
-
-   Repare no que NÃO está aqui: pontuação, nível e id. São campos que o servidor
-   controla. Se o front pudesse enviar "pontuacao": 9999 no PUT, daria para virar
-   Lenda Verde sem fazer missão nenhuma. É esse o motivo de existir DTO em vez de
-   receber o model direto no @RequestBody. */
+   Se um dia o cadastro passar a pedir algo que a alteração não pede, aí vale separar.*/
 public class UsuarioFormDto {
 
     @NotBlank(message = "O nome e obrigatorio")

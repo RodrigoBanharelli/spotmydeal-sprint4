@@ -4,10 +4,6 @@ import java.time.LocalDate;
 
 /* Registro de que um usuário concluiu uma missão — espelha a tabela T_SMD_USUARIO_MISSAO.
 
-   Esta classe não existia na Sprint 3, e foi exatamente o que o feedback apontou como
-   faltando: sem ela, a conclusão ficava num boolean dentro da própria missão e valia
-   para todos os usuários ao mesmo tempo.
-
    O par (usuarioId, missaoId) é único no banco, então a mesma missão não pode ser
    concluída duas vezes pelo mesmo usuário. */
 public class UsuarioMissao {

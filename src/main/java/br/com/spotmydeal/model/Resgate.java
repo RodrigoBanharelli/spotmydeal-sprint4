@@ -4,10 +4,6 @@ import java.time.LocalDate;
 
 /* Registro de que um usuário resgatou o cupom de uma loja — espelha a tabela T_SMD_RESGATE.
 
-   Esta classe também não existia na Sprint 3. O processarResgate antigo só imprimia
-   "OFERTA ATIVADA" no console e somava pontos; nada ficava gravado, então não havia
-   histórico nem como o front mostrar os cupons do usuário.
-
    O cupom é copiado da loja no momento do resgate, de propósito: se a loja trocar a
    oferta depois, o histórico continua mostrando o que o usuário de fato resgatou. */
 public class Resgate {

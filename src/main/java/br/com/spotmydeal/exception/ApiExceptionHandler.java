@@ -77,13 +77,8 @@ public class ApiExceptionHandler {
                         "O valor informado para '" + e.getName() + "' nao e valido."));
     }
 
-    /* 500 — falha de banco.
+    // 500 — falha de banco.
 
-       A apostila devolve e.getMessage() no corpo. Aqui a mensagem do Oracle vai para o
-       log do servidor e o cliente recebe um texto genérico: o erro do banco costuma
-       conter nome de tabela, de coluna e de constraint, e a própria documentação de
-       segurança do SoulUp pede tratamento de erros que não exponha o interior do
-       sistema. Quem está depurando lê o log; quem está no navegador, não. */
     @ExceptionHandler(SQLException.class)
     public ResponseEntity<ErrorResponseDto> erroDeBanco(SQLException e) {
         log.error("Falha de acesso ao banco de dados", e);

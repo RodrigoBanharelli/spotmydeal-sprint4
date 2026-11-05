@@ -4,14 +4,7 @@ package br.com.spotmydeal.model;
 
 public class Loja {
 
-    /* Informações da loja:
-
-    -Código da loja, gerado pela sequence do banco
-    -Nome da loja
-    -Coordenadas GPS da loja para utilizar na proximidade(LA/LO)
-    -Código do cupom da loja
-    -Indica se a loja está ativa e se pode estar ativa
-     */
+    // Informacoes da loja
     private int id;
     private String nome;
     private double latitude;
@@ -19,7 +12,7 @@ public class Loja {
     private String cupomNome;
     private boolean ativa;
 
-    // Construtor vazio — exigido pelo Jackson para montar o objeto a partir do JSON do POST
+    // Construtor vazio, exigido pelo Jackson para montar o objeto a partir do JSON
     public Loja() {
         this.ativa = true;
     }

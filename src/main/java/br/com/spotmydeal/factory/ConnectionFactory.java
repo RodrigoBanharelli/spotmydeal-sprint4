@@ -6,15 +6,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/* Fábrica de conexões com o banco.
-
-   Mudou de forma da Sprint 3 para a Sprint 4. Antes, esta classe abria a conexão
-   na mão com DriverManager e carregava a URL, o usuário e a senha dentro do código.
-   Agora quem monta o pool de conexões é o Spring, a partir do application.properties,
-   e esta classe só entrega uma conexão desse pool.
-
-   Ganhos: as credenciais saem do código-fonte (importante porque o repositório da
-   Sprint 4 é público) e o pool reaproveita conexões em vez de abrir uma por requisição. */
+// Fábrica de conexões com o banco.
 @Component
 public class ConnectionFactory {
 

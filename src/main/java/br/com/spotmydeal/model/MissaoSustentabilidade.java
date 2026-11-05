@@ -21,8 +21,6 @@ public class MissaoSustentabilidade {
     private int diasLimite;
 
     /* O campo "concluida" existia aqui na Sprint 3 e saiu na Sprint 4.
-       Ele era um erro de modelagem: a conclusão pertence ao par usuário x missão,
-       não à missão. Com o boolean na missão, assim que um usuário concluísse,
        a missão ficaria concluída para todos os outros.
        Agora quem guarda isso é a tabela T_SMD_USUARIO_MISSAO, via a classe UsuarioMissao. */
 

@@ -1,5 +1,4 @@
-# Dockerfile multi-stage - apostila 18 (Cors e Deploy), p.11
-# Imagens em Java 21 para casar com o <java.version>21</java.version> do pom.
+
 FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /app
 COPY pom.xml .
