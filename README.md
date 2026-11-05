@@ -96,3 +96,17 @@ depois disso pode levar 50 segundos até a aplicação acordar.
 
 A raiz `/` não tem rota mapeada e responde 404. Para verificar que a API está no ar, chame
 [`/usuarios`](https://spotmydeal-sprint4.onrender.com/usuarios).
+
+## Front-end
+
+A interface que consome esta API e um projeto React a parte, mantido no repositorio do time:
+
+| | |
+| --- | --- |
+| Aplicacao | https://spotmydeal-react-790tl8nny-gabriel-augusto1.vercel.app |
+| Codigo | https://github.com/GRibeiro-developer/Spotmydeal-REACT |
+
+A secao **Lojas Parceiras** da pagina inicial e montada com o retorno de `GET /lojas`: o que
+aparece la vem do Oracle, passando por esta API. E por isso que o CORS esta liberado para
+qualquer origem: sem ele, o navegador barraria a chamada vinda do dominio da Vercel.
+
