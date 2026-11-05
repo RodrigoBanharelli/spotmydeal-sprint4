@@ -1,2 +1,2 @@
-/mvnw text eol=lf
-*.cmd text eol=crlf
+# O zip da entrega nao precisa carregar uma copia de si mesmo.
+entrega/ export-ignore
