@@ -187,6 +187,23 @@ values (sq_t_smd_usuario.nextval, 'Gabriel A.', 'gabriel@email.com', 1540, 'Lend
 insert into t_smd_usuario (cd_usuario, nm_usuario, ds_email, vl_pontuacao, ds_nivel, nr_dias_ult_missao)
 values (sq_t_smd_usuario.nextval, 'Nycolas Melo', 'Melomelo@email.com', 1120, 'Lenda Verde', 4);
 
+-- ---------------------------------------------------------------------
+-- Rede de seguranca do nivel.
+--
+-- Esta instrucao recalcula ds_nivel para TODA a tabela, na mesma regra do
+-- Usuario.atualizarNivel() do Java. Rode sempre que alterar vl_pontuacao na mao:
+-- sem ela, a API devolve pontuacao alta com nivel de iniciante, porque o nivel
+-- so e recalculado no Java quando o usuario conclui uma missao.
+-- ---------------------------------------------------------------------
+
+update t_smd_usuario
+   set ds_nivel = case
+         when vl_pontuacao >= 1000 then 'Lenda Verde'
+         when vl_pontuacao >=  800 then 'Sustentavel Avancado'
+         when vl_pontuacao >=  500 then 'Ecologista'
+         else 'Iniciante'
+       end;
+
 commit;
 
 
